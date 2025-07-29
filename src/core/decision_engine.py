@@ -7,13 +7,12 @@ import logging
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
-# LLM imports (will be available after package installation)
+
+# Gemini API imports (Google Generative AI)
 try:
-    import openai
-    from openai import OpenAI
+    import google.generativeai as genai
 except ImportError:
-    openai = None
-    OpenAI = None
+    genai = None
 
 from models.schemas import (
     StructuredQuery, RetrievedClause, Decision, ClauseReference, 
@@ -31,9 +30,9 @@ class DecisionEngine:
         """Initialize the decision engine."""
         self.settings = get_settings()
         self.client = None
-        
-        if OpenAI and self.settings.openai_api_key:
-            self.client = OpenAI(api_key=self.settings.openai_api_key)
+        if genai and self.settings.gemini_api_key:
+            genai.configure(api_key=self.settings.gemini_api_key)
+            self.client = genai
     
     def make_decision(
         self, 
@@ -113,19 +112,13 @@ class DecisionEngine:
         retrieved_clauses: List[RetrievedClause]
     ) -> Decision:
         """
-        Use LLM to make a decision based on the context.
-        
-        Args:
-            structured_query: Structured query
-            retrieved_clauses: Retrieved clauses
-            
-        Returns:
-            Decision made by LLM
+        Use Gemini LLM to make a decision based on the context.
         """
+        if not self.client:
+            return self._rule_based_decision(structured_query, retrieved_clauses)
         try:
             # Prepare context for LLM
             context = self._prepare_llm_context(structured_query, retrieved_clauses)
-            
             prompt = f"""
 You are an expert insurance claims analyst. Based on the provided policy clauses and customer query, 
 make a decision about the insurance claim or coverage inquiry.
@@ -157,20 +150,12 @@ Return your response in the following JSON format:
 
 Be thorough in your analysis and reference specific clauses in your reasoning.
             """
-            
-            response = self.client.chat.completions.create(
-                model=self.settings.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=self.settings.max_tokens,
-                temperature=self.settings.temperature
-            )
-            
-            content = response.choices[0].message.content.strip()
-            
+            model = self.client.GenerativeModel(self.settings.model_name)
+            response = model.generate_content(prompt)
+            content = response.text.strip()
             # Parse JSON response
             try:
                 decision_data = json.loads(content)
-                
                 # Map decision type
                 decision_type_map = {
                     "APPROVED": DecisionType.APPROVED,
@@ -178,12 +163,10 @@ Be thorough in your analysis and reference specific clauses in your reasoning.
                     "PENDING": DecisionType.PENDING,
                     "REQUIRES_REVIEW": DecisionType.REQUIRES_REVIEW
                 }
-                
                 decision_type = decision_type_map.get(
                     decision_data.get("decision_type", "REQUIRES_REVIEW"),
                     DecisionType.REQUIRES_REVIEW
                 )
-                
                 return Decision(
                     decision_type=decision_type,
                     amount=decision_data.get("amount"),
@@ -191,14 +174,12 @@ Be thorough in your analysis and reference specific clauses in your reasoning.
                     confidence=min(1.0, max(0.0, decision_data.get("confidence", 0.5))),
                     reasoning=decision_data.get("reasoning", "Decision made based on policy analysis.")
                 )
-                
             except json.JSONDecodeError:
-                logger.warning(f"Failed to parse LLM decision response: {content}")
+                logger.warning(f"Failed to parse Gemini decision response: {content}")
                 # Extract decision from text if JSON parsing fails
                 return self._extract_decision_from_text(content)
-        
         except Exception as e:
-            logger.error(f"Error in LLM decision making: {e}")
+            logger.error(f"Error in Gemini decision making: {e}")
             return self._rule_based_decision(structured_query, retrieved_clauses)
     
     def _rule_based_decision(

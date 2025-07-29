@@ -8,13 +8,12 @@ import logging
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 
-# LLM imports (will be available after package installation)
+
+# Gemini API imports (Google Generative AI)
 try:
-    import openai
-    from openai import OpenAI
+    import google.generativeai as genai
 except ImportError:
-    openai = None
-    OpenAI = None
+    genai = None
 
 from models.schemas import QueryInput, StructuredQuery, ExtractedEntity, QueryType
 from core.config import get_settings
@@ -29,9 +28,9 @@ class QueryProcessor:
         """Initialize the query processor."""
         self.settings = get_settings()
         self.client = None
-        
-        if OpenAI and self.settings.openai_api_key:
-            self.client = OpenAI(api_key=self.settings.openai_api_key)
+        if genai and self.settings.gemini_api_key:
+            genai.configure(api_key=self.settings.gemini_api_key)
+            self.client = genai
     
     def process_query(self, query_input: QueryInput) -> StructuredQuery:
         """
@@ -186,17 +185,14 @@ class QueryProcessor:
         return entities
     
     def _extract_entities_llm(self, query: str) -> List[ExtractedEntity]:
-        """Extract entities using LLM."""
+        """Extract entities using Gemini LLM."""
         if not self.client:
             return []
-        
         try:
             prompt = f"""
             Extract structured information from the following insurance-related query.
             Return a JSON list of entities with entity_type, value, and confidence (0-1).
-            
             Query: "{query}"
-            
             Focus on these entity types:
             - age: person's age in years
             - gender: male/female
@@ -205,36 +201,24 @@ class QueryProcessor:
             - policy_duration: how long the insurance policy has been active
             - amount: any monetary amounts mentioned
             - insurance_type: type of insurance (health, life, etc.)
-            
             Return only valid JSON array, no other text:
             """
-            
-            response = self.client.chat.completions.create(
-                model=self.settings.model_name,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=500,
-                temperature=0.1
-            )
-            
-            content = response.choices[0].message.content.strip()
-            
+            model = self.client.GenerativeModel(self.settings.model_name)
+            response = model.generate_content(prompt)
+            content = response.text.strip()
             # Parse JSON response
             try:
                 entities_data = json.loads(content)
                 entities = []
-                
                 for entity_data in entities_data:
                     if all(key in entity_data for key in ['entity_type', 'value', 'confidence']):
                         entities.append(ExtractedEntity(**entity_data))
-                
                 return entities
-                
             except json.JSONDecodeError:
-                logger.warning(f"Failed to parse LLM entity extraction response: {content}")
+                logger.warning(f"Failed to parse Gemini entity extraction response: {content}")
                 return []
-        
         except Exception as e:
-            logger.error(f"Error in LLM entity extraction: {str(e)}")
+            logger.error(f"Error in Gemini entity extraction: {str(e)}")
             return []
     
     def _determine_intent(self, query: str, entities: List[ExtractedEntity]) -> str:

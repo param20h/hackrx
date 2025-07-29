@@ -12,8 +12,7 @@ sys.path.insert(0, str(src_dir))
 
 if __name__ == "__main__":
     import uvicorn
-    from api.app import app
-    
+    from src.api.app import app
     uvicorn.run(
         app, 
         host="0.0.0.0", 

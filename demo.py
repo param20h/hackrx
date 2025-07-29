@@ -10,8 +10,8 @@ from pathlib import Path
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from main import DocumentIntelligenceSystem
-from utils import generate_test_queries, create_response_summary, format_currency
+from src.main import DocumentIntelligenceSystem
+from src.utils import generate_test_queries, create_response_summary, format_currency
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel

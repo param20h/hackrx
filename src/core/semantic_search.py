@@ -17,12 +17,12 @@ except ImportError:
     chromadb = None
     SentenceTransformer = None
 
+
+# Gemini API imports (Google Generative AI)
 try:
-    import openai
-    from openai import OpenAI
+    import google.generativeai as genai
 except ImportError:
-    openai = None
-    OpenAI = None
+    genai = None
 
 from models.schemas import DocumentChunk, RetrievedClause, StructuredQuery
 from core.config import get_settings
@@ -41,9 +41,10 @@ class SemanticSearch:
         self.collection = None
         self.embedding_model = None
         
-        # Initialize OpenAI client
-        if OpenAI and self.settings.openai_api_key:
-            self.client = OpenAI(api_key=self.settings.openai_api_key)
+        # Initialize Gemini client
+        if genai and self.settings.gemini_api_key:
+            genai.configure(api_key=self.settings.gemini_api_key)
+            self.client = genai
         
         # Initialize ChromaDB
         if chromadb:
@@ -244,19 +245,21 @@ class SemanticSearch:
         Returns:
             List of embedding vectors or None if failed
         """
-        # Try OpenAI embeddings first
+        # Try Gemini embeddings first
         if self.client:
             try:
-                response = self.client.embeddings.create(
-                    model=self.settings.embedding_model,
-                    input=texts
-                )
-                
-                embeddings = [data.embedding for data in response.data]
-                return embeddings
-                
+                model = self.client.GenerativeModel(self.settings.embedding_model)
+                embeddings = []
+                for text in texts:
+                    resp = model.embed_content(text)
+                    if hasattr(resp, 'embedding'):
+                        embeddings.append(resp.embedding)
+                    else:
+                        logger.warning(f"No embedding returned for text: {text[:30]}")
+                if embeddings:
+                    return embeddings
             except Exception as e:
-                logger.warning(f"OpenAI embedding failed, falling back to local model: {e}")
+                logger.warning(f"Gemini embedding failed, falling back to local model: {e}")
         
         # Fallback to local embedding model
         if self.embedding_model:
@@ -324,7 +327,7 @@ class SemanticSearch:
             return {
                 "total_chunks": count,
                 "collection_name": self.collection.name,
-                "embedding_function": "OpenAI" if self.client else "SentenceTransformer"
+                "embedding_function": "Gemini" if self.client else "SentenceTransformer"
             }
         except Exception as e:
             return {"error": str(e)}
