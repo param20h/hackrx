@@ -1,0 +1,119 @@
+# Health Insurance Policy Document
+
+## Section 1: Coverage Details
+
+### 1.1 Medical Procedures Covered
+This policy covers the following medical procedures when performed by qualified medical practitioners:
+
+**Surgical Procedures:**
+- Knee surgery including arthroscopy, meniscus repair, and knee replacement
+- Hip replacement surgery for patients above 40 years of age
+- Cataract surgery for all covered members
+- Appendectomy and emergency surgical procedures
+- Gallbladder surgery (cholecystectomy)
+- Hernia repair surgery
+- Bypass surgery for cardiac conditions
+- Angioplasty and cardiac interventions
+
+**Diagnostic Procedures:**
+- MRI scans when medically necessary
+- CT scans for diagnostic purposes
+- Endoscopy procedures
+- Biopsy procedures
+
+### 1.2 Coverage Amounts
+The following maximum coverage amounts apply per policy year:
+
+- Knee surgery: Up to ₹2,00,000
+- Hip replacement: Up to ₹3,00,000  
+- Cataract surgery: Up to ₹50,000 per eye
+- Cardiac procedures: Up to ₹5,00,000
+- General surgery: Up to ₹1,50,000
+- Emergency procedures: Up to ₹2,00,000
+
+### 1.3 Geographic Coverage
+This policy provides coverage for medical treatment received in the following cities and their surrounding areas:
+
+**Tier 1 Cities:** Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, Kolkata, Ahmedabad
+**Tier 2 Cities:** Jaipur, Lucknow, Kanpur, Nagpur, Indore, Surat, Bhopal, Visakhapatnam
+**Tier 3 Cities:** All other cities and towns in India
+
+Treatment received in Tier 1 cities may have higher coverage limits compared to other tiers.
+
+## Section 2: Waiting Periods
+
+### 2.1 Initial Waiting Period
+A waiting period of 30 days applies to all non-emergency treatments from the policy start date.
+
+### 2.2 Pre-existing Conditions
+Pre-existing medical conditions are covered after a waiting period of 24 months from the policy commencement date.
+
+### 2.3 Specific Waiting Periods
+- Maternity benefits: 9 months waiting period
+- Knee and joint surgeries: 12 months waiting period for non-emergency cases
+- Cardiac procedures: 24 months waiting period unless emergency
+- Dental procedures: 6 months waiting period
+
+## Section 3: Exclusions
+
+### 3.1 General Exclusions
+The following are not covered under this policy:
+
+- Cosmetic surgery and aesthetic procedures
+- Experimental or unproven treatments
+- Treatment received outside India
+- Self-inflicted injuries
+- Injuries due to participation in hazardous sports
+- Treatment for substance abuse
+
+### 3.2 Age-Related Exclusions
+- Patients above 70 years: Cardiac surgery exclusions apply
+- Patients below 18 years: Certain adult-specific procedures excluded
+
+## Section 4: Claim Procedures
+
+### 4.1 Cashless Claims
+For cashless treatment, the following process must be followed:
+1. Inform the insurance company at least 48 hours before planned surgery
+2. Obtain pre-authorization from the insurance company
+3. Treatment must be received at a network hospital
+4. Submit all required documents within 7 days of discharge
+
+### 4.2 Reimbursement Claims
+For reimbursement claims:
+1. Submit claim form within 30 days of discharge
+2. Provide original bills and medical reports
+3. Include treating doctor's certification
+4. Claims will be processed within 15 working days
+
+## Section 5: Premium and Policy Terms
+
+### 5.1 Premium Payment
+Annual premium must be paid before the policy renewal date. Grace period of 15 days is provided for premium payment.
+
+### 5.2 Policy Validity
+This policy is valid for 12 months from the commencement date. Continuous renewal is available subject to terms and conditions.
+
+### 5.3 Sum Insured
+The sum insured amount varies based on the plan selected:
+- Basic Plan: ₹2,00,000
+- Standard Plan: ₹5,00,000  
+- Premium Plan: ₹10,00,000
+- Family Plan: ₹15,00,000
+
+## Section 6: Special Provisions
+
+### 6.1 Senior Citizens
+Special provisions apply for policy holders above 60 years of age:
+- Higher premium rates apply
+- Certain exclusions may be waived after 3 years of continuous coverage
+- Annual health check-ups are mandatory
+
+### 6.2 Network Hospitals
+The insurance company has tie-ups with over 5000 hospitals across India. Treatment at network hospitals enables cashless facility.
+
+### 6.3 Emergency Treatment
+Emergency treatment is covered from day one of the policy, subject to the following conditions:
+- Life-threatening conditions only
+- Treatment must commence within 24 hours of the emergency
+- Hospitalization must be for minimum 24 hours

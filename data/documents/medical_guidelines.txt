@@ -1,0 +1,149 @@
+# Medical Treatment Guidelines
+
+## Orthopedic Surgery Guidelines
+
+### Knee Surgery Procedures
+Knee surgery encompasses various procedures for treating knee joint problems:
+
+**Arthroscopic Procedures:**
+- Meniscus repair and removal
+- ACL reconstruction
+- Cartilage repair
+- Synovectomy
+
+**Open Knee Surgery:**
+- Total knee replacement
+- Partial knee replacement  
+- Osteotomy procedures
+- Ligament reconstruction
+
+**Patient Eligibility Criteria:**
+- Age: Typically 18-75 years for elective procedures
+- Medical fitness as assessed by orthopedic surgeon
+- Conservative treatment failure for at least 6 months
+- Adequate bone quality for implant procedures
+
+**Expected Outcomes:**
+- 90-95% success rate for knee replacement surgery
+- Return to normal activities within 3-6 months
+- Pain relief in 85-90% of cases
+- Improvement in mobility and quality of life
+
+### Hip Surgery Procedures
+Hip surgery includes various interventions for hip joint disorders:
+
+**Types of Hip Surgery:**
+- Total hip replacement
+- Hip resurfacing
+- Hip arthroscopy
+- Fracture repair
+
+**Coverage Criteria:**
+- Severe arthritis affecting daily activities
+- Hip fractures requiring surgical intervention
+- Failed conservative management
+- Age appropriate candidacy (typically 40+ years)
+
+## Cardiac Surgery Guidelines
+
+### Bypass Surgery
+Coronary artery bypass graft (CABG) surgery is indicated for:
+- Multi-vessel coronary artery disease
+- Left main coronary artery disease
+- Failed angioplasty procedures
+- Diabetic patients with multi-vessel disease
+
+**Pre-operative Requirements:**
+- Comprehensive cardiac evaluation
+- Risk assessment and patient counseling
+- Optimization of medical therapy
+- Informed consent for procedure
+
+### Angioplasty Procedures
+Percutaneous coronary intervention (PCI) includes:
+- Balloon angioplasty
+- Stent placement
+- Drug-eluting stent insertion
+- Rotational atherectomy
+
+## Ophthalmology Guidelines
+
+### Cataract Surgery
+Cataract surgery is the most common ophthalmic procedure:
+
+**Indications:**
+- Visual acuity worse than 6/18
+- Significant glare and visual disturbance
+- Impact on daily activities
+- Patient desire for improved vision
+
+**Surgical Techniques:**
+- Phacoemulsification (preferred method)
+- Manual small-incision cataract surgery
+- Femtosecond laser-assisted surgery
+
+**Post-operative Care:**
+- Regular follow-up visits
+- Medication compliance
+- Activity restrictions for initial weeks
+- Second eye surgery planning if needed
+
+## General Surgery Guidelines
+
+### Appendectomy
+Surgical removal of the appendix for:
+- Acute appendicitis
+- Complicated appendicitis
+- Recurrent appendicitis
+
+**Surgical Approaches:**
+- Laparoscopic appendectomy (preferred)
+- Open appendectomy
+- Single-incision laparoscopic surgery
+
+### Gallbladder Surgery
+Cholecystectomy for gallbladder disorders:
+- Symptomatic gallstones
+- Acute cholecystitis
+- Gallbladder polyps
+- Gallbladder cancer
+
+## Age-Specific Considerations
+
+### Pediatric Patients (0-18 years)
+- Special anesthesia considerations
+- Family-centered care approach
+- Age-appropriate surgical techniques
+- Specialized pediatric equipment
+
+### Adult Patients (18-65 years)
+- Standard surgical protocols
+- Risk-benefit assessment
+- Occupational considerations
+- Family planning implications
+
+### Elderly Patients (65+ years)
+- Comprehensive geriatric assessment
+- Increased perioperative monitoring
+- Modified surgical techniques
+- Enhanced recovery protocols
+
+## Geographic Treatment Standards
+
+### Metropolitan Cities
+- Advanced surgical facilities available
+- Subspecialty expertise accessible
+- Latest technology and equipment
+- Comprehensive post-operative care
+
+### Tier 2 Cities
+- Good quality surgical facilities
+- General surgical expertise
+- Standard equipment available
+- Adequate post-operative support
+
+### Rural Areas
+- Basic surgical facilities
+- General surgeons available
+- Referral system for complex cases
+- Telemedicine support when needed

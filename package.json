@@ -1,0 +1,23 @@
+{
+    "name": "document-intelligence-system",
+    "version": "1.0.0",
+    "description": "LLM-powered document intelligence system for processing natural language queries against unstructured documents",
+    "main": "src/main.py",
+    "scripts": {
+        "start": "python src/main.py",
+        "dev": "uvicorn src.api.app:app --reload --host 0.0.0.0 --port 8000",
+        "test": "pytest tests/",
+        "format": "black src/ && isort src/",
+        "lint": "black --check src/ && isort --check-only src/"
+    },
+    "keywords": [
+        "llm",
+        "document-intelligence",
+        "natural-language-processing",
+        "semantic-search",
+        "insurance",
+        "claims-processing"
+    ],
+    "author": "HackRX Team",
+    "license": "MIT"
+}
