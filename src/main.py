@@ -7,10 +7,10 @@ import logging
 from typing import List, Optional
 from pathlib import Path
 
-from models import (
+from .models import (
     QueryInput, SystemResponse, DocumentMetadata, ProcessingStatus
 )
-from core import (
+from .core import (
     DocumentProcessor, QueryProcessor, SemanticSearch, 
     DecisionEngine, get_settings, validate_settings
 )

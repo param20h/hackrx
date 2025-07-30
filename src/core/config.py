@@ -25,6 +25,7 @@ class Settings(BaseSettings):
     
     # Database and Storage
     chroma_db_path: str = "./data/chroma_db"
+    chroma_persist_directory: str = "./data/chroma_db"  # Added for compatibility
     documents_path: str = "./data/documents"
     
     # API Configuration
@@ -36,6 +37,10 @@ class Settings(BaseSettings):
     chunk_size: int = 1000
     chunk_overlap: int = 200
     top_k_results: int = 5
+    max_document_size: int = 10485760  # 10MB in bytes
+    
+    # Logging
+    log_level: str = "INFO"
     
     model_config = {
         "env_file": ".env",

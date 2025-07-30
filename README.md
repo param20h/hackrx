@@ -1,15 +1,25 @@
-# Document Intelligence System
+# Document Intelligence System for HackRX
 
-A comprehensive LLM-powered system that processes natural language queries and retrieves relevant information from large unstructured documents such as policy documents, contracts, and emails.
+A comprehensive Document Intelligence System that uses Large Language Models (LLMs) to process natural language queries and retrieve relevant information from unstructured documents. Specifically designed for the HackRX competition with exact API compliance.
 
 ## 🎯 Overview
 
-The Document Intelligence System uses Large Language Models (LLMs) to:
+The Document Intelligence System uses Google Gemini LLM to:
 
-1. **Parse and structure natural language queries** to identify key details such as age, procedure, location, and policy duration
-2. **Search and retrieve relevant clauses** from documents using semantic understanding rather than simple keyword matching
-3. **Evaluate retrieved information** to determine decisions such as approval status or payout amounts
-4. **Return structured JSON responses** with decisions, amounts, and justifications mapped to specific document clauses
+1. **Download and process PDF documents** from URLs provided in requests
+2. **Extract text content** using PyMuPDF for comprehensive document analysis  
+3. **Answer natural language questions** about document content with high accuracy
+4. **Return structured JSON responses** with answers to all provided questions
+5. **Authenticate requests** using bearer token authentication for security
+
+## 🚀 Key Features for HackRX
+
+- **URL-based Document Processing**: Downloads PDFs from URLs automatically
+- **Google Gemini Integration**: Uses advanced LLM for question answering
+- **Bearer Token Authentication**: Secure API access with competition token
+- **Multi-question Support**: Processes multiple questions per request
+- **Fast Response Times**: Optimized for sub-30-second processing
+- **Comprehensive Error Handling**: Robust error management and logging
 
 ## 🚀 Features
 

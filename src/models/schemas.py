@@ -8,6 +8,34 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 
+# --- HackRX API Models (for /hackrx/run endpoint) ---
+
+class HackrxRunRequest(BaseModel):
+    """Request model for /hackrx/run endpoint."""
+    documents: str = Field(..., description="URL to the policy PDF or document")
+    questions: List[str] = Field(..., description="List of questions to answer")
+
+class HackrxRunResponse(BaseModel):
+    """Response model for /hackrx/run endpoint."""
+    answers: List[str] = Field(..., description="Answers to the questions, in order")
+
+# For advanced output (optional, for explainability)
+class HackrxAnswerWithJustification(BaseModel):
+    """Detailed answer with justification and source clauses."""
+    answer: str = Field(..., description="The answer to the question")
+    justification: Optional[str] = Field(default=None, description="Reasoning behind the answer")
+    source_clauses: Optional[List[str]] = Field(default=None, description="Relevant clauses from the document")
+
+# For entity extraction (NER/Parsing)
+class ParsedQueryEntities(BaseModel):
+    """Structured entities extracted from natural language queries."""
+    age: Optional[int] = Field(default=None, description="Person's age in years")
+    gender: Optional[str] = Field(default=None, description="Person's gender (male/female)")
+    procedure: Optional[str] = Field(default=None, description="Medical procedure or treatment")
+    location: Optional[str] = Field(default=None, description="City or location")
+    policy_duration_months: Optional[int] = Field(default=None, description="Policy duration in months")
+
+
 class QueryType(str, Enum):
     """Types of queries the system can handle."""
     INSURANCE_CLAIM = "insurance_claim"

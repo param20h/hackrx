@@ -3,6 +3,12 @@ Models package initialization.
 """
 
 from .schemas import (
+    # HackRX API Models
+    HackrxRunRequest,
+    HackrxRunResponse,
+    HackrxAnswerWithJustification,
+    ParsedQueryEntities,
+    # Core Models
     QueryInput,
     StructuredQuery,
     ExtractedEntity,
@@ -20,6 +26,12 @@ from .schemas import (
 )
 
 __all__ = [
+    # HackRX API Models
+    "HackrxRunRequest",
+    "HackrxRunResponse", 
+    "HackrxAnswerWithJustification",
+    "ParsedQueryEntities",
+    # Core Models
     "QueryInput",
     "StructuredQuery", 
     "ExtractedEntity",
